@@ -1,0 +1,145 @@
+type: collection.insomnia.rest/5.0
+name: 1. 10.09.2025-Zyber – API Usuarios
+meta:
+  id: wrk_5d3d6937eb464917bfdfc4fd9ec2833f
+  created: 1757475844680
+  modified: 1757480641467
+  description: ""
+collection:
+  - url: "{{ usuarios_base }}/api/login"
+    name: Login admin
+    meta:
+      id: req_1a9f7021b76c4c059272bcb548048a42
+      created: 1757475859504
+      modified: 1757477622865
+      isPrivate: false
+      description: ""
+      sortKey: -1757475859504
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "login": "99999999", "password": "admin123" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.5.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ usuarios_base }}/api/login"
+    name: Login socio
+    meta:
+      id: req_9030a42348984ce9b89a5a86c67937d1
+      created: 1757476266547
+      modified: 1757477618263
+      isPrivate: false
+      description: ""
+      sortKey: -1757476266547
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "login": "12345678", "password": "socio.123" }'
+    headers:
+      - name: Accept
+        value: application/json
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ usuarios_base }}/api/me"
+    name: Perfil socio
+    meta:
+      id: req_64aae8dee68f4e51bd654d6ca8d40989
+      created: 1757477593033
+      modified: 1757480511789
+      isPrivate: false
+      description: ""
+      sortKey: -1757477593033
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ usuarios_base }}/api/me"
+    name: Perfil admin
+    meta:
+      id: req_d3e72f6bb5f34a40b2d934a4b517a521
+      created: 1757478835072
+      modified: 1757480522995
+      isPrivate: false
+      description: ""
+      sortKey: -1757478835072
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_admin }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_38c8f6a65ddf950020233f09d255dece01f07801
+    created: 1757475844704
+    modified: 1757476377625
+  cookies:
+    - key: XSRF-TOKEN
+      value: eyJpdiI6ImJlYTl5N2tOcjdnUC9TNnB2dWhTWXc9PSIsInZhbHVlIjoiUGhycWV2YWtzd3Z0MnZFVFhONnhaS01QYWVSYW1BUTFLZHZJbXFDUXhKTmY1VkdSWk91YW1vL3hTWlRWNmRPckNyQ254clBSZllBcG1DTzlLV0dZZW56OTZmS3FsRTBOM2gyeEhYUktrajVPTmVNekZZMlRKN0dEZDc0NjJ2bHIiLCJtYWMiOiIzOGFhYmI5MzBmNDk2NTljZmYwM2Y4MjFjMDBiOWU3MDY4ODNjMzJhNjdjNDAzZDQwOGNkZmNiZjZmOWE2YWFmIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      hostOnly: true
+      creation: 2025-09-10T03:52:57.624Z
+      lastAccessed: 2025-09-10T03:52:57.624Z
+      sameSite: lax
+      id: 03160ed1-9405-43dd-ad0d-9779d975686f
+    - key: api-usuarios-session
+      value: eyJpdiI6ImtibklLT1NPOEVHeUd2OUFmS3kyMEE9PSIsInZhbHVlIjoiSE1jcWFFYnBNUEp0TjRBL0lxK3ZSYmpoc2FGdng0WE1sdlMxTXFCbWYrTHJ2WVJCN3Z0RDFCQUl3QXdFWG5qYmFYQ3pJcExJNmdvNDJyQzdQN0VRdXhnTWM1b3MrN0NOMk1iWi9qK3hvcytFR2dURjlMRGcwRW9jUVRVa0JaYlciLCJtYWMiOiIzM2YwMzZmMzlmMzkxZDBhMjMwMTFmNzQxYTA3NmMxZTkxOGZiODJiOWU1N2FiZGI5ZTFlMTFkNDdiYmVlYTViIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-09-10T03:52:57.624Z
+      lastAccessed: 2025-09-10T03:52:57.624Z
+      sameSite: lax
+      id: 3a7013ee-b777-4da3-b670-ac7f06deabd6
+environments:
+  name: Base Environment
+  meta:
+    id: env_38c8f6a65ddf950020233f09d255dece01f07801
+    created: 1757475844701
+    modified: 1757480445662
+    isPrivate: false
+  data:
+    usuarios_base: http://127.0.0.1:8001
+    token_admin: 10|5usSYViTGUGZApTBB9Nif4BfKbsFxtsLB5BNYHj5ddff588b
+    token_socio: 11|bplfMyUoie39nA0VEMfi7kVWGdmpySvy9LrpYS5k00b59830

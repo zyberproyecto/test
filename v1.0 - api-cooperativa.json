@@ -1,0 +1,236 @@
+type: collection.insomnia.rest/5.0
+name: 2. 10.09.2025-Zyber – API Cooperativa (Socios)
+meta:
+  id: wrk_b794435e70f04cf3bd7e86c92a42a6d0
+  created: 1757480562208
+  modified: 1757480650486
+  description: ""
+collection:
+  - url: "{{ cooperativa }}/api/horas"
+    name: Mis horas
+    meta:
+      id: req_45554cb16ee14c4ab2b6ac3f3b06d31e
+      created: 1757480666743
+      modified: 1757480899304
+      isPrivate: false
+      description: ""
+      sortKey: -1757480666743
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ cooperativa }}/api/horas"
+    name: Registrar horas < 21
+    meta:
+      id: req_6a487966948749ebbe1577cc0bad3cb9
+      created: 1757480911068
+      modified: 1757630311807
+      isPrivate: false
+      description: ""
+      sortKey: -1757480911068
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "semana": "2025-W37", "horas": 16 }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ cooperativa }}/api/horas"
+    name: Registrar horas = 21
+    meta:
+      id: req_117dc8dedc264f92b6a7916d4a975b80
+      created: 1757482123971
+      modified: 1757482174243
+      isPrivate: false
+      description: ""
+      sortKey: -1757482123971
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "semana": "2025-W37", "horas": 21 }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ cooperativa }}/api/horas"
+    name: Registrar horas < 21 con motivo
+    meta:
+      id: req_c133294585994924a9f3e1e9fb164c6b
+      created: 1757482307884
+      modified: 1757482395992
+      isPrivate: false
+      description: ""
+      sortKey: -1757482307884
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "semana": "2025-W37", "horas": 18, "motivo": "reuniones escolares" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ cooperativa }}/api/comprobantes"
+    name: Mis comprobantes
+    meta:
+      id: req_ed9e48593e184193a4f37cf74864fb8e
+      created: 1757482541053
+      modified: 1757482600969
+      isPrivate: false
+      description: ""
+      sortKey: -1757482541053
+    method: GET
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ cooperativa }}/api/comprobantes"
+    name: Subir comprobante (mensual)
+    meta:
+      id: req_8eb851df102243ae8255ceea4542abc7
+      created: 1757482609186
+      modified: 1757482849185
+      isPrivate: false
+      description: ""
+      sortKey: -1757482609186
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_d09d97343606442ab8a9cbdb9f9f7cc4
+          name: tipo
+          value: inicial
+          description: ""
+          disabled: false
+          type: text
+          multiline: false
+        - id: pair_05a06f7e379c47c0ad6b2e573eaa0ceb
+          name: monto
+          value: "1200"
+          description: ""
+          disabled: false
+          type: text
+          multiline: false
+        - id: pair_662f45297bb74152a01b02eaf0d0ebc4
+          name: fecha_pago
+          value: 2025-09-10
+          description: ""
+          disabled: false
+        - id: pair_ffac3700b4824584be05f21dcc3f17be
+          name: archivo
+          value: ""
+          description: ""
+          disabled: false
+          type: file
+          fileName: C:\Users\Valentina\Downloads\Transferencia_a_terceros_2508290492350208
+            (1).pdf
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6966517b45b4fc61734fc04a64d4f4f39f678a99
+    created: 1757480562239
+    modified: 1757480959556
+  cookies:
+    - key: XSRF-TOKEN
+      value: eyJpdiI6ImNJUnRCZG8zdXZieUYzdURBSEZtT3c9PSIsInZhbHVlIjoiZVBSbVZRUmd4OG02QTRzOGFNQ09iMGltLzFiNHBTRC9PMmZTNStVQlRZUFdKRllnUXNjdnhUSmRxOFkzNmE3TW5uaXY3RExoQ1dvdS9tRFpzbk5FV1BJRHIybWdhTE5GRE5WNGhmaW5ybWhOb0JzeTJnZ0JjSERNTzRraTRjUG8iLCJtYWMiOiJiOTM0OGYwM2FhMTdhNjE4ODliOWI1MDlhMWM4NjhkOGJkMjc0OWNkZGY2YmYyYmJhYTNmOTcwNGIzNTIzYmViIiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      hostOnly: true
+      creation: 2025-09-10T05:09:19.556Z
+      lastAccessed: 2025-09-10T05:09:19.556Z
+      sameSite: lax
+      id: 6b874438-c83a-40bf-875f-d49099acd884
+    - key: api-cooperativa-session
+      value: eyJpdiI6IlJ0L2FsSW1KbFppdWZucVNyV28wa0E9PSIsInZhbHVlIjoid1l1VS9nejdJUW0zRitKQmk4Mi9uQzZJMS9DZFN4K3pvZEdJZmpHQWZGL2dLbmpoZ0pjSGNMUklnZFA1RXNBd0IwblpnVmJkaGRHbG85NzJ3RzloSlN5dkdqUlFqa3cxVE02ZGY1T3gvZUVmWFpCdDAvVFBPbWgrWjkzdXE5Y3IiLCJtYWMiOiI5YzA4NThiMTA3YzU1ODFlZGYwOTc2YTk0ZWVjZDkzNjA1M2U5YTZmMzQ2ZmRjZjVhZjdlMDZjZWZjMTlmNjk2IiwidGFnIjoiIn0%3D
+      maxAge: 7200
+      domain: 127.0.0.1
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-09-10T05:09:19.556Z
+      lastAccessed: 2025-09-10T05:09:19.556Z
+      sameSite: lax
+      id: b4464185-473f-40ec-aeec-56db11b50b2a
+environments:
+  name: Base Environment
+  meta:
+    id: env_6966517b45b4fc61734fc04a64d4f4f39f678a99
+    created: 1757480562234
+    modified: 1757480836230
+    isPrivate: false
+  data:
+    usuarios: http://127.0.0.1:8001
+    token_admin: 10|5usSYViTGUGZApTBB9Nif4BfKbsFxtsLB5BNYHj5ddff588b
+    token_socio: 11|bplfMyUoie39nA0VEMfi7kVWGdmpySvy9LrpYS5k00b59830
+    cooperativa: http://127.0.0.1:8002
+    backoffice: http://127.0.0.1:8003
