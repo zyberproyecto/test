@@ -7,9 +7,6 @@ Estos tests corresponden a la **primera versión estable (`v1.0`)**, la misma qu
 
 - [`api-usuarios`](https://github.com/zyberproyecto/api-usuarios) – Tag [`v1.0`](https://github.com/zyberproyecto/api-usuarios/releases/tag/v1.0)
 - [`api-cooperativa`](https://github.com/zyberproyecto/api-cooperativa) – Tag [`v1.0`](https://github.com/zyberproyecto/api-cooperativa/releases/tag/v1.0)
-- [`app-backoffice`](https://github.com/zyberproyecto/app-backoffice) – Tag [`v1.0`](https://github.com/zyberproyecto/app-backoffice/releases/tag/v1.0)
-- [`frontend_usuarios`](https://github.com/zyberproyecto/frontend_usuarios) – Tag [`v1.0`](https://github.com/zyberproyecto/frontend_usuarios/releases/tag/v1.0)
-- [`landing_page`](https://github.com/zyberproyecto/landing_page) – Tag [`v1.0`](https://github.com/zyberproyecto/landing_page/releases/tag/v1.0)
 
 ## Archivos incluidos
 - `api-usuarios-v1.json` → Requests básicos de autenticación (login, me, logout).  
