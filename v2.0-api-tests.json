@@ -1,0 +1,399 @@
+type: collection.insomnia.rest/5.0
+name: v.2 test api-usuarios-13.09.2025
+meta:
+  id: wrk_cac1cddf47254cf7a044b281f32e3a0f
+  created: 1757807803833
+  modified: 1757807803833
+  description: ""
+collection:
+  - url: http://127.0.0.1:8001/api/register
+    name: Api-USU - Probar “register” (desde la landing) nuevo socio*
+    meta:
+      id: req_62d2582972d243a7918e457bdc117e0f
+      created: 1757807809245
+      modified: 1757823693448
+      isPrivate: false
+      description: ""
+      sortKey: -1757807809245
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "ci": "88888888",
+          "nombre": "VPrueba Cinco",
+          "email": "pruebas8@zyber.test",
+          "telefono": "099554251",
+          "dormitorios": 2,
+          "comentarios": "Quiero postularme"
+        }
+    headers:
+      - name: Accept
+        value: application/json
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/login
+    name: Api-USU - Login User registrado
+    meta:
+      id: req_9fbbe6ff81a24a2fa36821bad8b237f7
+      created: 1757808260706
+      modified: 1757823781873
+      isPrivate: false
+      description: ""
+      sortKey: -1757809195509
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "login": "22222222", "password": "val123" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/login
+    name: Api-USU - Login User rechazado - denega*
+    meta:
+      id: req_6817210a6dd5466d95c3d43857da603f
+      created: 1757809172190
+      modified: 1757823747432
+      isPrivate: false
+      description: ""
+      sortKey: -1757809172190
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "login": "44444444", "password": "die123" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/login
+    name: Api-USU - Login User pendiente - denega*
+    meta:
+      id: req_f17a65c14975454193d2cd139368a18d
+      created: 1757809195409
+      modified: 1757823766061
+      isPrivate: false
+      description: ""
+      sortKey: -1757809195409
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "login": "33333333", "password": "luc123" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/register
+    name: Api-USU - Probar "register" - socio existente*
+    meta:
+      id: req_f0a4a8313b47431c9359be67719e2ca2
+      created: 1757809406812
+      modified: 1757823652543
+      isPrivate: false
+      description: ""
+      sortKey: -1757807809145
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "ci": "22222222",
+          "nombre": "VPrueba Cinco",
+          "email": "prueba5@zyber.test",
+          "telefono": "099554251",
+          "dormitorios": 2,
+          "comentarios": "Quiero postularme"
+        }
+    headers:
+      - name: Accept
+        value: application/json
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/me
+    name: Api-USU - Probar endpoints protegidos api/me
+    meta:
+      id: req_2e3ee46c2fa1494e81919305a3e5f078
+      created: 1757809542702
+      modified: 1757810422609
+      isPrivate: false
+      description: ""
+      sortKey: -1757809542702
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/perfil
+    name: Api-USU - Probar endpoints protegidos api/perfil
+    meta:
+      id: req_80b42a52a1514d9a9f2e6f0086624363
+      created: 1757809629038
+      modified: 1757810403426
+      isPrivate: false
+      description: ""
+      sortKey: -1757809629038
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8001/api/logout
+    name: Api-USU - Probar endpoints protegidos logout
+    meta:
+      id: req_22dded38b35c4a479048226aaf836803
+      created: 1757809794869
+      modified: 1757810389362
+      isPrivate: false
+      description: ""
+      sortKey: -1757809794869
+    method: POST
+    headers:
+      - name: User-Agent
+        value: insomnia/11.5.0
+      - name: Authorization
+        value: Bearer {{ token_socio }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8002/api/health
+    name: Api-COP - GET api/health
+    meta:
+      id: req_28972c87ced243e08faad04ccdd7921c
+      created: 1757814645036
+      modified: 1757817327104
+      isPrivate: false
+      description: ""
+      sortKey: -1757814645036
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: " http://127.0.0.1:8002/api/horas"
+    name: Api-COP - POST /api/horas
+    meta:
+      id: req_81ae247cf8e247e888f1d7ec0a4508fc
+      created: 1757817297935
+      modified: 1757827207720
+      isPrivate: false
+      description: ""
+      sortKey: -1757817297935
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        "semana_inicio": "2025-09-08",
+        		"horas_reportadas": 21,
+          "motivo": ""
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer 2|ySqHyYpqpOgGiDg3MvGjrAWn26TtZBTR1feT1tvT43f7ad35
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8002/api/horas/mias
+    name: Api-COP - GET /api/horas/mias
+    meta:
+      id: req_187445695bef4176b13904f02a13d90d
+      created: 1757817343188
+      modified: 1757827535747
+      isPrivate: false
+      description: ""
+      sortKey: -1757817343188
+    method: GET
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer 2|ySqHyYpqpOgGiDg3MvGjrAWn26TtZBTR1feT1tvT43f7ad35
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8002/api/comprobantes
+    name: Api-COP - POST /api/comprobantes
+    meta:
+      id: req_12f947e0e86141afb384a32bcf8e7187
+      created: 1757817350715
+      modified: 1757829095041
+      isPrivate: false
+      description: ""
+      sortKey: -1757817350715
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_2c73ca219245423cbe039fa95c0aa2db
+          name: tipo
+          value: aporte_mensual
+          description: ""
+          disabled: false
+          type: text
+          multiline: false
+        - id: pair_c0c46f61762d4b7f88eaa975b2fcbc50
+          name: periodo
+          value: 2025-09
+          description: ""
+          disabled: false
+          type: text
+          multiline: false
+        - id: pair_5422e5677c0e4adcab3158b92dc450ee
+          name: monto
+          value: "3500"
+          description: ""
+          disabled: false
+          type: text
+          multiline: false
+        - id: pair_581108edf1cf48759d53e017f85ab005
+          name: archivo
+          value: ""
+          description: ""
+          disabled: false
+          type: file
+          fileName: C:\Users\Valentina\Downloads\Transferencia_a_terceros_2508290492350208
+            (1).pdf
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer 2|ySqHyYpqpOgGiDg3MvGjrAWn26TtZBTR1feT1tvT43f7ad35
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://127.0.0.1:8002/api/comprobantes/estado
+    name: Api-COP - GET /api/comprobantes/estado
+    meta:
+      id: req_2c46f68d7d8c46da8ada2c7b0caae103
+      created: 1757828125641
+      modified: 1757829467276
+      isPrivate: false
+      description: ""
+      sortKey: -1757828125641
+    method: GET
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer 2|ySqHyYpqpOgGiDg3MvGjrAWn26TtZBTR1feT1tvT43f7ad35
+      - name: Accept
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_48992df89cac1b9da7932e58c38eb4264cb783ed
+    created: 1757807803838
+    modified: 1757807803838
+environments:
+  name: Base Environment
+  meta:
+    id: env_48992df89cac1b9da7932e58c38eb4264cb783ed
+    created: 1757807803836
+    modified: 1757827547186
+    isPrivate: false
+  data:
+    token_socio: " 2|ySqHyYpqpOgGiDg3MvGjrAWn26TtZBTR1feT1tvT43f7ad35"
